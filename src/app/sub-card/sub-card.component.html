@@ -1,0 +1,24 @@
+<div class="sub-card">
+    <div class="card" *ngFor="let stats of subStats">
+        <div class="card-left">
+            <p>{{stats.dailyStatType}}</p>
+            <span>
+                {{stats.dailyStat}}
+            </span>
+        </div>
+        <div class="card-right">
+            <object lang="en" [data]="'././assets/images/icon-'+stats.socialMedia+'.svg' | safe" width="20" height="20" type="image/svg+xml" title="{{stats.socialMedia}}">
+            </object>
+
+            <span [ngClass]="{'stats-up': stats.isDailyStatPositive, 'stats-down': !stats.isDailyStatPositive}">
+                <object *ngIf="stats.isDailyStatPositive" lang="en" data="././assets/images/icon-up.svg" width="8" height="4" type="image/svg+xml" title="up">
+                </object> 
+                <object *ngIf="!stats.isDailyStatPositive" lang="en" data="././assets/images/icon-down.svg" width="8" height="4" type="image/svg+xml" title="up">
+                </object>
+                <p> {{stats.dailyStatPercentage}} %</p>
+              </span>
+
+        </div>
+
+    </div>
+</div>

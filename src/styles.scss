@@ -1,1 +1,409 @@
-/* You can add global styles to this file, and also import other style files */
+$background-color-dark: #1d1f29;
+$font-title-color-dark: #ffffff;
+$font-text-color-dark: #8c98c6;
+$card-background-dark: #252b42;
+$card-background-hover-dark: #333a55;
+$toggle-background-active: linear-gradient(225deg, #40db6f 0%, #388fe7 98.02%);
+$background-header-dark: #20222f;
+
+$background-color-light: #ffffff;
+$font-title-color-light: #1d1f29;
+$font-text-color-light: #63687d;
+$card-background-light: #f1f3fa;
+$card-background-hover-light: #e1e4f0;
+$toggle-background-inactive: #aeb3cb;
+$background-header-light: #f7f9ff;
+
+$facebook: #178ff5;
+$twitter: #1da1f2;
+$instagram: linear-gradient(225deg, #df4896 0%, #ee877e 50.91%, #fdc366 100%);
+$youtube: #c4032b;
+$green: #1eb589;
+$red: #dc414c;
+
+html {
+    font-size: 0.625em;
+}
+body {
+    margin: 0 auto;
+    font-size: 1.6rem;
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    padding: 3.6rem 2.4rem 4.5rem;
+    position: relative;
+    z-index: 1;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 23.5rem;
+        width: 100%;
+        z-index: -1;
+        border-radius: 0px 0px 20px 20px;
+    }
+    h1 {
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 2.905rem;
+        margin: 0;
+    }
+    p {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.694rem;
+    }
+    &.dark-mode {
+        background-color: $background-color-dark;
+        color: $font-text-color-dark;
+        &::after {
+            background-color: $background-header-dark;
+        }
+        .title {
+            h1 {
+                color: $font-title-color-dark;
+            }
+        }
+        hr {
+            background-color: $card-background-hover-dark;
+        }
+        .main-card {
+            .card {
+                background-color: $card-background-dark;
+                &:hover {
+                    background-color: $card-background-hover-dark;
+                }
+                &-content {
+                    span {
+                        color: $font-title-color-dark;
+                    }
+                }
+            }
+        }
+        .overview {
+            h2 {
+                color: $font-title-color-dark;
+            }
+            .sub-card {
+                .card {
+                    background-color: $card-background-dark;
+                    &:hover {
+                        background-color: $card-background-hover-dark;
+                    }
+                    &-left {
+                        span {
+                            color: $font-title-color-dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.light-mode {
+        background-color: $background-color-light;
+        color: $font-text-color-light;
+        &::after {
+            background-color: $background-header-light;
+        }
+        .title {
+            h1 {
+                color: $font-title-color-light;
+            }
+        }
+        hr {
+            background-color: $card-background-hover-light;
+        }
+        .main-card {
+            .card {
+                background-color: $card-background-light;
+                &:hover {
+                    background-color: $card-background-hover-light;
+                }
+                &-content {
+                    span {
+                        color: $font-title-color-light;
+                    }
+                }
+            }
+        }
+        .overview {
+            h2 {
+                color: $font-title-color-light;
+            }
+            .sub-card {
+                .card {
+                    background-color: $card-background-light;
+                    &:hover {
+                        background-color: $card-background-hover-light;
+                    }
+                    &-left {
+                        span {
+                            color: $font-title-color-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .title {
+        margin-bottom: 2.4rem;
+        p {
+            margin: 4px 0 0 0;
+        }
+    }
+
+    hr {
+        height: 1px;
+        border: 0;
+        margin: 0;
+    }
+
+    .dark-mode-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.6rem;
+        p {
+            margin: 0;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 4.8rem;
+            height: 2.4rem;
+            input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                &:checked + .slider {
+                    background: $toggle-background-active;
+                }
+                &:focus + .slider {
+                    box-shadow: 0 0 1px $toggle-background-active;
+                }
+
+                &:checked + .slider:before {
+                    background-color: $card-background-dark;
+                    -webkit-transform: translateX(-2.4rem);
+                    -ms-transform: translateX(-2.4rem);
+                    transform: translateX(-2.4rem);
+                }
+            }
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: $toggle-background-inactive;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+                border-radius: 34px;
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 1.8rem;
+                    width: 1.8rem;
+                    right: 3px;
+                    bottom: 3px;
+                    background-color: $card-background-light;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    .main-card {
+        margin-top: 4rem;
+        margin-bottom: 4.6rem;
+        display: grid;
+        gap: 2.4rem;
+        .card {
+            border-radius: 5px;
+            border-top: 4px solid;
+            p {
+                font-size: 1.2rem;
+                line-height: 1.452rem;
+                margin: 0;
+            }
+
+            &.facebook {
+                border-color: $facebook;
+            }
+            &.instagram {
+                position: relative;
+                border-top: 0;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 5px;
+                    padding: 4px 0px 0px 0px;
+                    background: $instagram;
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: destination-out;
+                    mask-composite: exclude;
+                }
+            }
+
+            &.twitter {
+                border-color: $twitter;
+            }
+            &.youtube {
+                border-color: $youtube;
+            }
+
+            &-header {
+                display: flex;
+                margin-top: 3.2rem;
+                margin-bottom: 2.8rem;
+                gap: 8px;
+                justify-content: center;
+                align-items: center;
+            }
+            &-content {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 9px;
+                span {
+                    font-size: 5.6rem;
+                    line-height: 4.8rem;
+                    letter-spacing: -2px;
+                    font-weight: 700;
+                    margin: 0;
+                }
+                p {
+                    margin: 0;
+                    letter-spacing: 5px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                }
+            }
+            &-footer {
+                margin-top: 2.5rem;
+                margin-bottom: 2.4rem;
+                .stats-up {
+                    color: $green;
+                }
+                .stats-down {
+                    color: $red;
+                }
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                    p {
+                        margin: 0;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+    }
+    .overview {
+        h2 {
+            margin: 0;
+            font-size: 2.4rem;
+            line-height: 2.905rem;
+            font-weight: 700;
+        }
+
+        .sub-card {
+            margin-top: 2.7rem;
+            display: grid;
+            gap: 1.6rem;
+            .card {
+                padding: 27px 31px 24px 24px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                height: 125px;
+                box-sizing: border-box;
+                &-left {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    p {
+                        margin: 0;
+                    }
+                    span {
+                        font-size: 3.2rem;
+                        line-height: 3.873rem;
+                        font-weight: 700;
+                    }
+                }
+                &-right {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    .stats-up {
+                        color: $green;
+                    }
+                    .stats-down {
+                        color: $red;
+                    }
+                    span {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 4px;
+                        p {
+                            margin: 0;
+                            text-transform: capitalize;
+                            font-size: 1.2rem;
+                            line-height: 1.452rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 675px) {
+    .container {
+        &::after{
+            height: 24.4rem
+        }
+        .title{
+            h1{
+                font-size: 2.8rem;
+                line-height: 3.389rem;
+            }
+            p {
+                margin: 3px 0 0 0;
+            }
+        }
+        hr{
+            display: none;
+        }
+        .content{
+            max-width: 1110px;
+            margin: 0 auto;
+        .main-card {
+            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(25.5rem, 1fr));
+        }
+        .overview {
+            .sub-card {
+                column-gap: 3rem;
+                row-gap: 2.4rem;
+                grid-template-columns: repeat(auto-fit, minmax(25.5rem, 1fr));
+            }
+        }
+        }
+        
+    }
+}
