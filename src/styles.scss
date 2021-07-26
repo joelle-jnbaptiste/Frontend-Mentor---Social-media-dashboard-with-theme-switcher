@@ -56,6 +56,8 @@ body {
         line-height: 1.694rem;
     }
     &.dark-mode {
+        -webkit-transition: 0.4s;
+                transition: 0.4s;
         background-color: $background-color-dark;
         color: $font-text-color-dark;
         &::after {
@@ -71,6 +73,8 @@ body {
         }
         .main-card {
             .card {
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
                 background-color: $card-background-dark;
                 &:hover {
                     background-color: $card-background-hover-dark;
@@ -88,6 +92,8 @@ body {
             }
             .sub-card {
                 .card {
+                    -webkit-transition: 0.4s;
+                transition: 0.4s;
                     background-color: $card-background-dark;
                     &:hover {
                         background-color: $card-background-hover-dark;
@@ -104,6 +110,8 @@ body {
     &.light-mode {
         background-color: $background-color-light;
         color: $font-text-color-light;
+        -webkit-transition: 0.4s;
+                transition: 0.4s;
         &::after {
             background-color: $background-header-light;
         }
