@@ -1,5 +1,6 @@
 <main class=" container" [ngClass]="{'dark-mode': isDark, 'light-mode': !isDark}">
   <div class="content">
+    <div class="content-header">
     <div class="title">
       <h1>
         Social Media Dashboard
@@ -7,7 +8,7 @@
       <p>
         Total Followers: 23,004
       </p>
-  
+
     </div>
     <hr>
     <div class="dark-mode-button">
@@ -15,25 +16,26 @@
         Dark Mode
       </p>
       <label class="switch">
-        <input type="checkbox"[checked]="isDark" (change)="isDark = !isDark"  >
+        <input type="checkbox" [checked]="isDark" (change)="isDark = !isDark">
         <span class="slider"></span>
       </label>
-      
     </div>
-  
+    </div>
+
+
     <app-main-card></app-main-card>
-  
+
     <div class="overview">
       <h2>Overview - Today</h2>
       <app-sub-card></app-sub-card>
     </div>
   </div>
- 
+
 
 </main>
 
 
-<footer class="attribution">
+<footer class="attribution" [ngClass]="{'dark-mode': isDark, 'light-mode': !isDark}">
   Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-  Coded by <a href="#">Your Name Here</a>.
+  Coded by <a href="#">Joëlle JB</a>.
 </footer>
